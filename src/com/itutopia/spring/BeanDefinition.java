@@ -1,7 +1,7 @@
 package com.itutopia.spring;
 
 /**
- * @description:
+ * @description: 定义Bean
  * @author: Junchao_Lee
  * @e-mail: ljch867@163.com
  * @date: 2022/3/23 00:06

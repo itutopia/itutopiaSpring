@@ -1,6 +1,5 @@
 package com.itutopia.spring;
 
-import java.beans.Beans;
 import java.beans.Introspector;
 import java.io.File;
 import java.lang.reflect.Field;
@@ -10,17 +9,19 @@ import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @description:
+ * @description: ApplicationContext 应用程序上下文
  * @author: Junchao_Lee
  * @e-mail: ljch867@163.com
  * @date: 2022/3/22 23:28
  */
 public class ItUtopiaApplicationContext {
 
+    // 配置类成员变量
     private Class config;
 
+    // BeansMap
     private ConcurrentHashMap<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
-    // 单例池
+    // SingletonMap:单例池
     private ConcurrentHashMap<String, Object> singletonObjects = new ConcurrentHashMap<>();
     //
     private ArrayList<BeanPostProcessor> beanPostProcessorList = new ArrayList<>();
@@ -51,6 +52,7 @@ public class ItUtopiaApplicationContext {
 //                        System.out.println(className);
 
                         try {
+                            // 类加载器根据名称加载类
                             Class<?> clazz = classLoader.loadClass(className);
 
                             if (clazz.isAnnotationPresent(Component.class)) {
@@ -71,6 +73,7 @@ public class ItUtopiaApplicationContext {
                                 Component component = clazz.getAnnotation(Component.class);
                                 String beanName = component.value();
 
+                                // 注解中没有写入值,通过class反射机制获取simpleName.
                                 if (beanName.equals("")) {
                                     beanName = Introspector.decapitalize(clazz.getSimpleName());
                                 }

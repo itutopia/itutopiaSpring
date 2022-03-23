@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @description: 自定义组件扫描
+ * @description: 自定义组件扫描注解
  * @author: Junchao_Lee
  * @e-mail: ljch867@163.com
  * @date: 2022/3/22 23:32

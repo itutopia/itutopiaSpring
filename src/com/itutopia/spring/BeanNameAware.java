@@ -8,5 +8,9 @@ package com.itutopia.spring;
  */
 public interface BeanNameAware {
 
+    /**
+     * 设置BeanName
+     * @param beanName
+     */
     public void setBeanName(String beanName);
 }
